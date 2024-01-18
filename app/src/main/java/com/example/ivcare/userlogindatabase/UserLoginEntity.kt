@@ -1,11 +1,11 @@
-package com.example.ivcare.userdatabase
+package com.example.ivcare.userlogindatabase
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "user")
-data class UserEntity (
+data class UserLoginEntity (
 
     @ColumnInfo(name = "username")
     var Username: String,
