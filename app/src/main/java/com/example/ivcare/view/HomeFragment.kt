@@ -30,10 +30,9 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        val application = activity?.applicationContext!!
+        val application = requireContext()
 
-        binding = DataBindingUtil.setContentView(requireActivity(), R.layout.fragment_home)
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
         val dao = UserDatabase.getInstance(application).userDAO
         val repository = UserRepository(dao)
         val factory = UserViewModelFactory(repository)
@@ -43,14 +42,9 @@ class HomeFragment : Fragment() {
 
         initRecyclerView()
 
-//        userViewModel.message.observe(this, Observer {
-//            it.getContentIfNotHandled()?.let {
-////                Toast.makeText(this, it, Toast.LENGTH_LONG).show()
-//            }
-//        })
-
         setHasOptionsMenu(true)
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        // Inflate the layout for this fragment
+        return binding.root
     }
 
     private fun initRecyclerView(){
