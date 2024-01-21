@@ -40,9 +40,9 @@ class MainActivity : AppCompatActivity() {
 
             when (destination.id) {
                 R.id.homeFragment -> fragmentName = "Home"
+                R.id.notificationFragment -> fragmentName = "Notifications"
                 R.id.aboutFragment -> fragmentName = "About"
                 R.id.faqFragment -> fragmentName = "FAQ"
-
             }
 
             if (destination.id == R.id.loginFragment || destination.id == R.id.registerFragment) {
