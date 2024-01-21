@@ -1,5 +1,6 @@
 package com.example.ivcare.view.notification
 
+import PlaceholderItem
 import java.util.ArrayList
 import java.util.HashMap
 
@@ -60,10 +61,6 @@ object NotificationContent {
         ITEM_MAP[item.id] = item
     }
 
-    private fun createPlaceholderItem(position: String): PlaceholderItem {
-        return PlaceholderItem(position, "Item $position", "No details")
-    }
-
     private fun makeDetails(position: Int): String {
         val builder = StringBuilder()
         builder.append("Details about Item: ").append(position)
@@ -76,12 +73,4 @@ object NotificationContent {
     /**
      * A placeholder item representing a piece of content.
      */
-    @Serializable
-    data class PlaceholderItem(val notifId: String, val unitId: String, val problem: String) {
-        val id = notifId
-        val content = unitId
-        val details = problem
-
-        override fun toString(): String = "$id, $content, $details"
-    }
 }

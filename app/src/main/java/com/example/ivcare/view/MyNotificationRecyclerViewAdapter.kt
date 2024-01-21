@@ -1,11 +1,11 @@
 package com.example.ivcare.view
 
+import PlaceholderItem
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
 
-import com.example.ivcare.view.notification.NotificationContent.PlaceholderItem
 import com.example.ivcare.databinding.FragmentItemBinding
 import com.example.ivcare.view.notification.NotificationContent
 

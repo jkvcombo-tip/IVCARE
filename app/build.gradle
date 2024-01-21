@@ -3,6 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
     id 'kotlin-parcelize'
+    id 'kotlinx-serialization'
 }
 apply plugin: 'kotlin-kapt'
 
@@ -43,6 +44,8 @@ android {
         exclude 'META-INF/INDEX.LIST'
         exclude 'META-INF/io.netty.versions.properties'
     }
+
+//    apply plugin: 'kotlinx-serialization'
 
     ndkVersion '25.2.9519653'
 }
