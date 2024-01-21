@@ -16,22 +16,20 @@
           };
         };
 
-        androidBuildToolsVersion = "33.0.1";
-
         androidComposition = pkgs.androidenv.composeAndroidPackages {
           toolsVersion = "26.1.1";
-          platformToolsVersion = "33.0.3";
-          buildToolsVersions = [androidBuildToolsVersion "30.0.3"];
-          includeEmulator = false;
-          emulatorVersion = "32.1.8";
-          platformVersions = ["28" "29" "30" "31" "33"];
+          platformToolsVersion = "34.0.5";
+          buildToolsVersions = ["34.0.0"];
+          includeEmulator = true;
+          emulatorVersion = "34.1.9";
+          platformVersions = ["34"];
           includeSources = true;
           includeSystemImages = false;
           systemImageTypes = ["google_apis_playstore"];
           abiVersions = ["armeabi-v7a" "arm64-v8a"];
           cmakeVersions = ["3.22.1"];
           includeNDK = true;
-          ndkVersions = ["25.1.8937393"];
+          ndkVersions = ["26.1.10909125"];
           useGoogleAPIs = false;
           useGoogleTVAddOns = false;
           includeExtras = [

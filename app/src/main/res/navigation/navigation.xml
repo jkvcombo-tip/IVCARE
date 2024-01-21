@@ -31,6 +31,11 @@
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
     <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.example.ivcare.view.NotificationFragment"
+        android:label="fragment_notification"
+        tools:layout="@layout/fragment_item_list" />
+    <fragment
         android:id="@+id/aboutFragment"
         android:name="com.example.ivcare.view.AboutFragment"
         android:label="fragment_about"
