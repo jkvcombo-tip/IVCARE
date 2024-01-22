@@ -31,20 +31,20 @@ class MyNotificationRecyclerViewAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = values[position]
-        holder.idView.text = item.id
-        holder.contentView.text = item.content
-        holder.detailView.text = item.content
+        holder.alertName.text = item.alertName
+        holder.emergency.text = item.emergency
+        holder.room.text = item.room
     }
 
     override fun getItemCount(): Int = values.size
 
     inner class ViewHolder(binding: FragmentItemBinding) : RecyclerView.ViewHolder(binding.root) {
-        val idView: TextView = binding.itemNumber
-        val contentView: TextView = binding.content
-        val detailView: TextView = binding.details
+        val alertName: TextView = binding.alertName
+        val emergency: TextView = binding.emergency
+        val room: TextView = binding.room
 
         override fun toString(): String {
-            return super.toString() + " '" + contentView.text + "'"
+            return super.toString() + " '" + alertName.text + "'"
         }
     }
 
