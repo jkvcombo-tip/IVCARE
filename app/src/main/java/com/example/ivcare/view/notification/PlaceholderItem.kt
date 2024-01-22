@@ -1,10 +1,7 @@
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class PlaceholderItem(val notifId: Int, val unitId: Int, val problem: Int) {
-    val id = "Id(${notifId})"
-    val content = "Content($unitId)"
-    val details = "Details($problem)"
-
-    override fun toString(): String = "$id, $content, $details"
+data class PlaceholderItem(val alertId: Int, val alertname: String, val emergency: String, val room: String) {
+    val alertName = alertname
+    override fun toString(): String = "$alertId, $alertname, $emergency, $room"
 }

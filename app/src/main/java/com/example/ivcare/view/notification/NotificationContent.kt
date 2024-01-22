@@ -17,6 +17,71 @@ import kotlinx.serialization.json.Json
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 
+val OFFLINE = false;
+val OFFLINE_DATA: String = """
+    [
+      {
+        "alertId": 1,
+        "alertname": "Alert",
+        "emergency": "Emergency",
+        "room": "ROOM 1"
+      },
+      {
+        "alertId": 2,
+        "alertname": "Alert",
+        "emergency": "Emergency",
+        "room": "ROOM 2"
+      },
+      {
+        "alertId": 3,
+        "alertname": "Alert",
+        "emergency": "Emergency",
+        "room": "ROOM 3"
+      },
+      {
+        "alertId": 4,
+        "alertname": "Alert",
+        "emergency": "Emergency",
+        "room": "ROOM 4"
+      },
+      {
+        "alertId": 5,
+        "alertname": "Alert",
+        "emergency": "Emergency",
+        "room": "ROOM 5"
+      },
+      {
+        "alertId": 6,
+        "alertname": "Alert",
+        "emergency": "Emergency",
+        "room": "ROOM 6"
+      },
+      {
+        "alertId": 7,
+        "alertname": "Alert",
+        "emergency": "Emergency",
+        "room": "ROOM 7"
+      },
+      {
+        "alertId": 8,
+        "alertname": "Alert",
+        "emergency": "Emergency",
+        "room": "ROOM 8"
+      },
+      {
+        "alertId": 9,
+        "alertname": "Alert",
+        "emergency": "Emergency",
+        "room": "ROOM 9"
+      },
+      {
+        "alertId": 10,
+        "alertname": "Alert",
+        "emergency": "Emergency",
+        "room": "ROOM 10"
+      }
+    ]
+""".trimIndent()
 
 /**
  * Helper class for providing sample content for user interfaces created by
@@ -34,7 +99,7 @@ object NotificationContent {
     /**
      * A map of sample (placeholder) items, by ID.
      */
-    val ITEM_MAP: MutableMap<String, PlaceholderItem> = HashMap()
+    val ITEM_MAP: MutableMap<Int, PlaceholderItem> = HashMap()
 
     private val COUNT = 25
 
@@ -42,7 +107,11 @@ object NotificationContent {
         val client = HttpClient(CIO)
         val nc = this
         runBlocking {
-            val response = client.get("https://my-json-server.typicode.com/Dogeuzman/mockjson/notifications").body<String>()
+            val response = if (OFFLINE) {
+                client.get("https://my-json-server.typicode.com/jkvcombo-tip/jkjson/notifications").body<String>()
+            }else{
+                OFFLINE_DATA
+            }
             val obj = Json.decodeFromString<List<PlaceholderItem>>(response)
             println(obj)
             obj.forEach {
@@ -58,7 +127,7 @@ object NotificationContent {
 
     private fun addItem(item: PlaceholderItem) {
         ITEMS.add(item)
-        ITEM_MAP[item.id] = item
+        ITEM_MAP[item.alertId] = item
     }
 
     private fun makeDetails(position: Int): String {
@@ -69,8 +138,4 @@ object NotificationContent {
         }
         return builder.toString()
     }
-
-    /**
-     * A placeholder item representing a piece of content.
-     */
 }
